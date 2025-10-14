@@ -1,0 +1,101 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_0ee9c516c3e34534a6329cecbc3cdead
+  created: 1755607814876
+  modified: 1755607814876
+  description: ""
+collection:
+  - name: Atividade S1_R6-AT1_PBE1
+    meta:
+      id: fld_88259259451d44c6a01af414c6ad5cfa
+      created: 1755608099878
+      modified: 1760448274277
+      sortKey: -1755608099878
+      description: ""
+    children:
+      - url: HTTP://localhost:8081/clientes
+        name: Listar clientes
+        meta:
+          id: req_90ca3820bd164b7c8128d30dfa853421
+          created: 1755607832543
+          modified: 1760444532306
+          isPrivate: false
+          description: ""
+          sortKey: -1755608127084
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"numeros": [43, 42, 3, 9]
+            }
+        parameters:
+          - id: pair_a189d293ebe7442a9205fabfd48d3d07
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: HTTP://localhost:8081/clientes
+        name: Criar cliente
+        meta:
+          id: req_5ae459ec497f47d5ae1543c7d4904a7f
+          created: 1760444538125
+          modified: 1760446364023
+          isPrivate: false
+          description: ""
+          sortKey: -1755608127184
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"nomeCliente": "Matheus dos Santos",
+            	"cpfCliente": "12334636656"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: I1HASB
+    meta:
+      id: fld_5c60ef0a15344ca88780a0305f55ed66
+      created: 1757434442417
+      modified: 1760440906069
+      sortKey: -1757434442417
+      description: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6a9d92db0b2bf5318e6f4b75c503eca5d106916e
+    created: 1755607814891
+    modified: 1755607814891
+environments:
+  name: Base Environment
+  meta:
+    id: env_6a9d92db0b2bf5318e6f4b75c503eca5d106916e
+    created: 1755607814882
+    modified: 1755607814882
+    isPrivate: false
