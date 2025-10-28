@@ -24,8 +24,8 @@ const produtoController = {
             res.status(200).json(produtos);
 
         } catch (error) {
-            console.error('Erro ao lsitar produtos:', error);
-            res.status(500).json({ message: 'Erro ao buscar produtos.' });
+            console.error('Erro ao listar produtos:', error);
+            res.status(500).json({ erro: 'Erro ao buscar produtos.' });
         }
     },
 
@@ -46,8 +46,8 @@ const produtoController = {
 
             const { nomeProduto, precoProduto } = req.body;
 
-            if (nomeProduto == undefined || precoProduto == undefined || isNaN(precoProduto)) {
-                return res.status(400).json({ erro: 'Campos obrigatórios não preenchidos!' });
+            if (nomeProduto == undefined || precoProduto == undefined || isNaN(precoProduto) || precoProduto <= 0) {
+                return res.status(400).json({ erro: 'Campos obrigatórios não preenchidos ou preço inválido!' });
             }
 
             await produtoModel.inserirProduto(nomeProduto, precoProduto);
@@ -90,6 +90,10 @@ const produtoController = {
 
             const nomeAtualizado = nomeProduto ?? produtoAtual.nomeProduto;
             const precoAtualizado = precoProduto ?? produtoAtual.precoProduto;
+
+            if (precoAtualizado <= 0 || isNaN(precoAtualizado)) {
+                return res.status(400).json({ erro: 'Preço do produto deve ser um número positivo!' });
+            }
 
             await produtoModel.atualizarProdutos(idProduto, nomeAtualizado, precoAtualizado)
 

@@ -8,4 +8,4 @@ router.get("/clientes", clienteController.listarClientes);
 //POST /cliente -> Cadastra um cliente
 router.post("/clientes", clienteController.criarCliente);
 
-module.exports = {clienteRoutes: router};
+module.exports = {clienteRoutes: router}
